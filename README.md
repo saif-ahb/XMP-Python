@@ -1,5 +1,5 @@
 # XMP-Script
-Extracts tags from filename and inserts them as XMP metadata
+Extracts tags from filename and inserts them as [XMP metadata](https://en.wikipedia.org/wiki/Extensible_Metadata_Platform)
 
 
 A rudementary script to improve file sorting/grouping. Meant to work in conjuction with [PixivBatchDownloader](https://github.com/xuejianxianzun/PixivBatchDownloader)'s download naming rule. But can function with anything as long as the tags are in the filename and are delimited.
