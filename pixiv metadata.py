@@ -1,4 +1,4 @@
-#Processes at about 1 second per image 
+# Processes at about 1 second per image 
 import os
 import subprocess
 directory = <folder where your images are>
@@ -8,28 +8,28 @@ location = []
 old_location = []
 
 
-# file iteration and rename
+# File iteration and rename
 for filename in os.listdir(directory):
     f = os.path.join(directory, filename)
-    if not filename in ["desktop.ini","exiftool", "pixiv metadata.py"]: #Check if file IS NOT blacklisted
-        files.append(filename.split(".")[0])                            #Creates file array where the tags will get separated
-        x = filename.split("#")
+    if not filename in ["desktop.ini","exiftool", "pixiv metadata.py"]: # Check if file IS NOT blacklisted
+        files.append(filename.split(".")[0])                            # Creates file array where the tags will get separated
+        x = filename.split("#")                                         # Splits values from text with # being the delimiter
         for j in range(len(x)-2):
-            x.pop(1)                                                    #Removes the unwanted elements
+            x.pop(1)                                                    # Removes the unwanted elements
         new_name = x[0]+x[1]
         old_location.append(os.path.join(directory,filename))
-        location.append(os.path.join(directory,new_name))               #Rename the file so exif accepts it
+        location.append(os.path.join(directory,new_name))               # Rename the file so exif accepts it
 
 x = 0
-for i in range(len(files)):                                             #Execute the file renaming
+for i in range(len(files)):                                             # Execute the file renaming
     os.rename(old_location[x], location[x])
     x=x+1
 
 
-# data separation and insertion
+# Data separation and insertion
 x = 0
 for i in range(len(files)):
-    array = files[x].split("#")                                         #Extract everything separated with a #
+    array = files[x].split("#")                                         # Extract everything separated with a #
     title=array[1]
     creator=array[2]
     description=array[3]
